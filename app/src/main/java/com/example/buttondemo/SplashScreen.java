@@ -35,7 +35,6 @@ public class SplashScreen extends AppCompatActivity {
         }
 
         txt = (TextView) findViewById(R.id.txt);
-        txt.setText("Demo Demo");
         doControl();
         new Handler().postDelayed(new Runnable() {
             @Override
