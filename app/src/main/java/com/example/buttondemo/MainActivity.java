@@ -57,7 +57,6 @@ Toolbar toolbar;
                 if(vibration){
                     vibrator.vibrate(200);
                 }
-
             }
         });
         setSupportActionBar(toolbar);
