@@ -1,5 +1,6 @@
 package com.example.buttondemo;
 
+import android.graphics.Color;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.support.v4.app.NavUtils;
@@ -33,6 +34,7 @@ Toolbar toolbar;
     private void setupActionBar() {
         getLayoutInflater().inflate(R.layout.toolbar, (ViewGroup)findViewById(android.R.id.content));
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

@@ -1,9 +1,11 @@
 package com.example.buttondemo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +27,7 @@ SharedPreferences ayarlar;
 RelativeLayout layout;
 boolean sound;
 boolean vibration;
-
+Vibrator vibrator;
 Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ Toolbar toolbar;
        }
         //count = preferences.getInt("count",0);
         setAyarlar();
+         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         btn.setText(String.valueOf(count));
         toolbar.setTitle("My Button Demo");
         toolbar.setTitleTextColor(Color.WHITE);
@@ -51,6 +54,10 @@ Toolbar toolbar;
             public void onClick(View v) {
                 count++;
                 btn.setText(String.valueOf(count));
+                if(vibration){
+                    vibrator.vibrate(200);
+                }
+
             }
         });
         setSupportActionBar(toolbar);
@@ -100,6 +107,7 @@ Toolbar toolbar;
         }
         sound = ayarlar.getBoolean("sound",false);
         vibration = ayarlar.getBoolean("vibration", false);
+
         ayarlar.registerOnSharedPreferenceChangeListener(MainActivity.this);
     }
 
