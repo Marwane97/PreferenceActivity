@@ -36,6 +36,7 @@ public class SplashScreen extends AppCompatActivity {
 
         txt = (TextView) findViewById(R.id.txt);
         doControl();
+       // txt.setText(String.valueOf(dateHour));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -46,9 +47,9 @@ public class SplashScreen extends AppCompatActivity {
         },SPLASH_TIME_OUT);
     }
     void doControl(){
-        if(dateHour <= 5 && dateHour < 18){
+        if(dateHour >= 5 && dateHour < 18){
             txt.setText("Iyi günlerr");
-        }else if(dateHour <= 18 && dateHour < 23){
+        }else if(dateHour >= 18 && dateHour < 23){
             txt.setText("Iyi akşamlar");
         }else{
             txt.setText("Iy geceler");
